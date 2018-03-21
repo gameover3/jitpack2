@@ -35,7 +35,6 @@ public class Response {
   /**
    * Description : Constructor.
    *
-   * @param status
    */
   public Response(String status) {
     this.status = status;
@@ -46,8 +45,6 @@ public class Response {
   /**
    * Description : Constructor.
    *
-   * @param status
-   * @param message
    */
   public Response(String status, String message) {
     this.status = status;
