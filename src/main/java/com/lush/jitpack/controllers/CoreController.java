@@ -34,10 +34,6 @@ public class CoreController {
    */
   private RestTemplate restTemplate;
 
-  public CoreController(RestTemplateBuilder restTemplateBuilder) {
-    this.restTemplate = restTemplateBuilder.build();
-  }
-
   /**
    * Define Gson for json convert and parse.
    */
@@ -76,6 +72,13 @@ public class CoreController {
   private InetAddress ip;
 
   /**
+   * Set to RestTemplate Bean.
+   */
+  public CoreController(RestTemplateBuilder restTemplateBuilder) {
+    this.restTemplate = restTemplateBuilder.build();
+  }
+
+  /**
    * Method name : setUri
    * Description : Set uri for rest api.
    *
@@ -85,7 +88,7 @@ public class CoreController {
    */
   public String setUri(String context) throws UnknownHostException {
     ip = InetAddress.getLocalHost();
-    return request.getScheme() + "://" + request.getRemoteHost() + ":" + request.getServerPort() + "/" + context;
+    return request.getScheme() + "://" + ip.getHostName() + ":" + request.getServerPort() + "/" + context;
   }
 
   /**
