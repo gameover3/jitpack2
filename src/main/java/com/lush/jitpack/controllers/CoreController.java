@@ -165,7 +165,6 @@ public class CoreController {
    */
   @GetMapping("/")
   public ResponseEntity endpoints() throws UnknownHostException {
-    
     // Get endpoints data.
     String uri = setUri("mappings");
     ResponseEntity<JsonNode> data = restTemplate.getForEntity(uri, JsonNode.class);
