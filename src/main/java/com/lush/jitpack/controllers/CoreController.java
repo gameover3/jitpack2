@@ -20,6 +20,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * ActuatorController
+ *
+ * Class that receives health check for services and endpoint information requests.
+ *
+ * @author Is
+ * @author Jelly
+ */
 @RestController
 public class CoreController {
 
@@ -79,8 +87,7 @@ public class CoreController {
   }
 
   /**
-   * Method name : setUri
-   * Description : Set uri for rest api.
+   * Set uri for rest api.
    *
    * @param context
    * @return String
@@ -92,8 +99,7 @@ public class CoreController {
   }
 
   /**
-   * Method name : healthz
-   * Description : Check health.(application, database, redis)
+   * Check health.(application, database, redis)
    *
    * @return Response
    * @throws UnknownHostException
@@ -152,14 +158,14 @@ public class CoreController {
   }
 
   /**
-   * Method name : endpoints
-   * Description : Get endpoint list of api.
+   * Get endpoint list of api.
    *
    * @return ResponseEntity
    * @throws UnknownHostException
    */
   @GetMapping("/")
   public ResponseEntity endpoints() throws UnknownHostException {
+    
     // Get endpoints data.
     String uri = setUri("mappings");
     ResponseEntity<JsonNode> data = restTemplate.getForEntity(uri, JsonNode.class);
